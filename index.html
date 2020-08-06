@@ -1,0 +1,51 @@
+<?php
+  $serverName = "serverName\\scottPC"; //serverName\instanceName
+
+  // Since UID and PWD are not specified in the $connectionInfo array,
+  // The connection will be attempted using Windows Authentication.
+  $connectionInfo = array( "Database"=>"project1");
+  $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+  if( $conn ) {
+      echo "Connection established.<br />";
+  }else{
+      echo "Connection could not be established.<br />";
+      die( print_r( sqlsrv_errors(), true));
+  }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  
+</head>
+  <div class="container">
+    <h1>Landing Page</h1>
+    <div class="body">
+      <div class="login">
+        <h3>Customer Login</h3>
+        <form action="get_customer_pass.php" method="get">
+          <label for="cust_user">Username</label>
+          <input type="text" class="customer_user">
+          <label for="cust_pass">Password</label>
+          <input type="text" class="customer_pass">
+          <button type="submit" class="std_btn">Submit</button>
+        </form>
+      </div>
+      <div class="login">
+        <h3>Employee Login</h3>
+        <form action="" method="get">
+          <label for="emp_user">Username</label>
+          <input type="text" class="employee_user">
+          <label for="emp_pass">Password</label>
+          <input type="text" class="employee_pass">
+          <button type="submit" class="std_btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div> 
+</html>
